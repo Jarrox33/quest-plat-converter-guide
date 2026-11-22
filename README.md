@@ -2,7 +2,7 @@
 Step-by-step guide to converting PC Beat Saber custom platforms (.plat) to Quest (.qplat) for the Void mod directly on Meta Quest using Termux and Python 3—no PC required.
 # Converting Beat Saber Platforms (`.plat` → `.qplat`) Standalone on Meta Quest
 
-Run the `voidplat` Python converter (`plat2qplat.py`) directly on your Meta Quest headset using **Termux**—no PC required.
+How to run the `voidplat` Python converter (`plat2qplat.py`) directly on your Meta Quest headset using **Termux**—no PC required.
 
 ---
 
