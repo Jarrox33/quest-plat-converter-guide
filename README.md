@@ -91,7 +91,7 @@ Before copying a `.qplat` into Beat Saber, inspect the summary printed in Termux
 | Indicator | Works Well on Quest | Likely Broken / Dark on Quest |
 | :--- | :--- | :--- |
 | **Output `.qplat` size** | `100 KB+` (up to several MB) | `10–15 KB` (geometry/shaders stripped) |
-| **Lights & Rings** | `tube lights > 0` or `ring sets > 0` | `0 tube lights, 0 ring sets` |
+| **Lights & Rings** | `tube lights > 32` or `ring sets > 16` | `0 tube lights, 0 ring sets` |
 | **Shaders** | `Unlit/Color`, `BeatSaber/Unlit Glow`, `BeatSaber/Lit Glow` | `Poiyomi Toon`, `CellShading`, `GlassRefraction`, `ProBuilder` |
 
 *(Platforms built around Beat Saber tube lights and ring sets—such as **HiWave** or **SynthWave**—adapt dynamically to song lighting without relying on PC-only DirectX shaders.)*
