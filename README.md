@@ -113,7 +113,7 @@ PyPI does not have pre-built Android (`aarch64`) wheels or source tarballs for `
      ```bash
      pip install cython setuptools wheel
      ```
-  2. Download the `[pyfqmr-Fast-Quadric-Mesh-Reduction](https://github.com/Kramer84/pyfqmr-Fast-quadric-Mesh-Reduction)` source ZIP directly from GitHub in your browser (**Code → Download ZIP**) into `/sdcard/Download`.
+  2. Download the `pyfqmr-Fast-Quadric-Mesh-Reduction` source ZIP directly from GitHub in your browser (**Code → Download ZIP**) into `/sdcard/Download`.
   3. Install it locally without build isolation:
      ```bash
      pip install --no-build-isolation /sdcard/Download/*pyfqmr*.zip
