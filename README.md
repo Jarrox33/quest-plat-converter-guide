@@ -9,7 +9,7 @@ How to run the `voidplat` Python converter (`plat2qplat.py`) directly on your Me
 ## Prerequisites
 
 * **Beat Saber** patched via [ModsBeforeFriday (MBF)](https://bsquest.xyz) with `voidplat.qmod` installed
-* **Termux** (install the APK from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Termux GitHub Releases](https://github.com/termux/termux-app ))
+* **Termux** (install the APK from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Termux GitHub Releases](https://github.com/termux/termux-app )
 * **Hacker's Keyboard** (install the APK from [F-Droid](https://f-droid.org/en/packages/org.pocketworkstation.pckeyboard/) or [GitHub Releases](https://github.com/klausw/hackerskeyboard )) — required for typing and pressing **Enter** inside Termux on Horizon OS
 * **A Quest file manager** (e.g., [ZArchiver](https://www.apkmirror.com/apk/zdevs/zarchiver/))
 * **`void-converter-linux.zip`** from the `voidplat` GitHub Releases page
@@ -113,7 +113,7 @@ PyPI does not have pre-built Android (`aarch64`) wheels or source tarballs for `
      ```bash
      pip install cython setuptools wheel
      ```
-  2. Download the `pyfqmr-Fast-Quadric-Mesh-Reduction` source ZIP directly from GitHub in your browser (**Code → Download ZIP**) into `/sdcard/Download`.
+  2. Download the `[pyfqmr-Fast-Quadric-Mesh-Reduction](https://github.com/Kramer84/pyfqmr-Fast-quadric-Mesh-Reduction)` source ZIP directly from GitHub in your browser (**Code → Download ZIP**) into `/sdcard/Download`.
   3. Install it locally without build isolation:
      ```bash
      pip install --no-build-isolation /sdcard/Download/*pyfqmr*.zip
