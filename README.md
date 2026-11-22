@@ -103,3 +103,58 @@ Before copying a `.qplat` into Beat Saber, inspect the summary printed in Termux
    ```
    *(Alternatively, upload the `.qplat` file directly through **ModsBeforeFriday** in your Quest browser.)*
 2. Launch Beat Saber, navigate to **Mods → Void** on the left panel, and select your converted platform.
+
+## Troubleshooting
+
+### 1. `pyfqmr` Fails to Install (`No matching distribution found` or `No module named 'setuptools'`)
+PyPI does not have pre-built Android (`aarch64`) wheels or source tarballs for `pyfqmr`, so `pip install pyfqmr` will fail.
+* **Fix:**
+  1. Install `cython`, `setuptools`, and `wheel` first:
+     ```bash
+     pip install cython setuptools wheel
+     ```
+  2. Download the `pyfqmr-Fast-Quadric-Mesh-Reduction` source ZIP directly from GitHub in your browser (**Code → Download ZIP**) into `/sdcard/Download`.
+  3. Install it locally without build isolation:
+     ```bash
+     pip install --no-build-isolation /sdcard/Download/*pyfqmr*.zip
+     ```
+
+### 2. `etcpak` (or `astc-encoder-py` / `texture2ddecoder`) Fails to Build During `pip install UnityPy`
+`UnityPy` compiles several C/C++ texture decoders (`etcpak`, `astc-encoder-py`, `texture2ddecoder`, `brotli`, `fmod_toolkit`) from source on Android.
+* **Fix:** Make sure Termux's C++ compiler toolchain is installed and force `clang` if needed:
+  ```bash
+  pkg install -y clang cmake ninja build-essential python
+  CC=clang CXX=clang++ pip install UnityPy
+  ```
+
+### 3. `UnityPy` Fails on `Pillow` (`Failed building wheel for Pillow`)
+Compiling `Pillow` from source via `pip` fails if JPEG/zlib headers are missing.
+* **Fix:** Install Termux's pre-built `python-pillow` package instead, then re-run `pip install UnityPy`:
+  ```bash
+  pkg install -y python-pillow
+  pip install UnityPy
+  ```
+
+### 4. `E: Unable to locate package cython` or `Cannot find command 'git'`
+`cython` is a Python package (installed via `pip`), not a Termux `pkg` package—and if `pkg install` hits a missing package, it stops before installing the rest of the line.
+* **Fix:** Install `git` with `pkg` and `cython` with `pip` separately:
+  ```bash
+  pkg install -y git
+  pip install cython
+  ```
+
+### 5. `numpy.linalg.LinAlgError: Singular matrix` When Converting
+Some `.plat` files contain a mesh object scaled to `0` on one axis, which crashes `merge_static` during conversion.
+* **Fix:** Add `--no-merge` to the end of the conversion command:
+  ```bash
+  python void-converter/plat2qplat.py "PlatformName.plat" --no-merge
+  ```
+
+### 6. `no CustomPlatform component found: is this a platform?`
+* **Cause A:** There are no `.plat` files in the folder you ran the loop on, so bash passed the literal text `*.plat` to Python. Make sure your `.plat` file is inside `/sdcard/Download` (or whichever folder you `cd` into).
+* **Cause B:** The file is a `.bloq` saber, `.avatar`, or a platform built for an incompatible Unity version.
+
+### 7. Platform Loads Pitch Black, Grayscale, or Has a Floating Shadow
+* **Pitch black / grayscale:** The PC platform uses DirectX-only shaders (`Poiyomi Toon`, `CellShading`, `GlassRefraction`, `ProBuilder`) that Quest cannot render. Look for platforms using `Unlit/Color`, `BeatSaber/Unlit Glow`, `BeatSaber/Lit Glow`, and native `tube lights` or `ring sets` instead.
+* **Floating dark shadow / shape:** On PC, some platforms include semi-transparent fog planes or camera-follow meshes that `plat2qplat.py` converts into solid dark unlit meshes.
+* **Environment override:** Make sure **Override Default Environments** is turned **OFF** in Beat Saber's left-hand **Environments** menu.
