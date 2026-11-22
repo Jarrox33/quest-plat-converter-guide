@@ -9,9 +9,9 @@ How to run the `voidplat` Python converter (`plat2qplat.py`) directly on your Me
 ## Prerequisites
 
 * **Beat Saber** patched via [ModsBeforeFriday (MBF)](https://bsquest.xyz) with `voidplat.qmod` installed
-* **Termux** (install the APK from [F-Droid](https://f-droid.org) or [Termux GitHub Releases](https://github.com))
-* **Hacker's Keyboard** (install the APK from [F-Droid](https://f-droid.org) or [GitHub Releases](https://github.com)) — required for typing and pressing **Enter** inside Termux on Horizon OS
-* **A Quest file manager** (e.g., [ZArchiver](https://uptodown.com))
+* **Termux** (install the APK from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Termux GitHub Releases](https://github.com/termux/termux-app ))
+* **Hacker's Keyboard** (install the APK from [F-Droid](https://f-droid.org/en/packages/org.pocketworkstation.pckeyboard/) or [GitHub Releases](https://github.com/klausw/hackerskeyboard )) — required for typing and pressing **Enter** inside Termux on Horizon OS
+* **A Quest file manager** (e.g., [ZArchiver](https://www.apkmirror.com/apk/zdevs/zarchiver/))
 * **`void-converter-linux.zip`** from the `voidplat` GitHub Releases page
 
 ---
