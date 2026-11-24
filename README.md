@@ -158,3 +158,8 @@ Some `.plat` files contain a mesh object scaled to `0` on one axis, which crashe
 * **Pitch black / grayscale:** The PC platform uses DirectX-only shaders (`Poiyomi Toon`, `CellShading`, `GlassRefraction`, `ProBuilder`) that Quest cannot render. Look for platforms using `Unlit/Color`, `BeatSaber/Unlit Glow`, `BeatSaber/Lit Glow`, and native `tube lights` or `ring sets` instead.
 * **Floating dark shadow / shape:** On PC, some platforms include semi-transparent fog planes or camera-follow meshes that `plat2qplat.py` converts into solid dark unlit meshes.
 * **Environment override:** Make sure **Override Default Environments** is turned **OFF** in Beat Saber's left-hand **Environments** menu.
+
+---
+
+## Update.
+* **Official Platform Folder Path:** Place converted `.qplat` files into `/sdcard/ModData/com.beatgames.beatsaber/Mods/Void/Platforms/` (or upload them directly through **ModsBeforeFriday**).
